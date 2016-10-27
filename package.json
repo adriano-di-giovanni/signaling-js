@@ -1,0 +1,45 @@
+{
+  "name": "signaling-js",
+  "version": "0.1.0",
+  "description": "A minimalistic messaging system for Node.js and the browser",
+  "main": "signaling.js",
+  "scripts": {
+    "lint": "eslint signaling.js",
+    "test": "karma start karma.conf.js",
+    "minify": "uglifyjs signaling.js --compress --mangle",
+    "build": "npm run minify -- --source-map signaling.min.map --output signaling.min.js",
+    "prepublish": "npm run lint && npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriano-di-giovanni/signaling-js.git"
+  },
+  "keywords": [
+    "event",
+    "message",
+    "publish",
+    "signal",
+    "subscribe"
+  ],
+  "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adriano-di-giovanni/signaling-js/issues"
+  },
+  "homepage": "https://github.com/adriano-di-giovanni/signaling-js#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "karma": "^1.3.0",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^1.2.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6",
+    "uglify-js": "^2.7.4"
+  }
+}
