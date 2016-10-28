@@ -28,6 +28,16 @@ describe('Signal', function () {
     expect(receiver.calledWithExactly(0, 1, 2)).to.be.true
   })
 
+  it('should pipe', function () {
+    var anotherSignal = new Signal()
+    var spy = sinon.spy(anotherSignal, 'emit')
+    signal.pipe(anotherSignal)
+    signal.emit(0, 1, 2)
+    expect(spy.calledOnce).to.be.true
+    expect(spy.calledOn(anotherSignal)).to.be.true
+    expect(spy.calledWithExactly(0, 1, 2)).to.be.true
+  })
+
   it('should disconnect', function () {
     disconnect = signal.connect(receiver, context)
     disconnect()

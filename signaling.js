@@ -39,6 +39,10 @@
     }
   }
 
+  Signal.prototype.pipe = function (signal) {
+    return this.connect(signal.emit, signal)
+  }
+
   Signal.prototype.emit = function () {
     var bindings = this.bindings
     var binding
